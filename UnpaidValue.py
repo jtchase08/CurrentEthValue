@@ -6,8 +6,14 @@ def draw():
     # build window, label
     global text
 
-    text = tk.Label(main, text='Starting...', font=("Lucida Console", 48))
-    text.pack()
+    tk.Label(main, text="Public Miner Address: ").grid(row=0)
+    tk.Label(main, text="Current Unpaid Value: ").grid(row=1)
+    mineraddress = tk.Entry(main)
+    mineraddress.grid(row=0,column=1)
+
+    text = tk.Label(main, text='Starting...', font=("Segoe UI", 16))
+    text.grid(row=1,column=1)
+    
 
 def worker():
     global text
@@ -28,6 +34,8 @@ def worker():
     main.after(10000, worker)
 
 main = tk.Tk()
+main.title('Unpaid Value')
+main.resizable(False,False)
 draw()
 worker()
 
